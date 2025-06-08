@@ -1,4 +1,12 @@
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/AppSlice";
+
 function Head() {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    console.log("button");
+    dispatch(toggleMenu());
+  };
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center">
@@ -7,6 +15,7 @@ function Head() {
             src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-icon-download-in-svg-png-gif-file-formats--crispy-user-interface-pack-icons-462145.png"
             alt="menu"
             className="h-8 px-2"
+            onClick={toggleMenuHandler}
           />
         </button>
         <img
