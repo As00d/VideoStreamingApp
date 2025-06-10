@@ -1,9 +1,9 @@
 function VideoCard({ data }) {
   return (
-    <div className="rounded-xl border w-[397px] my-4">
+    <div className="rounded-xl w-[397px] my-4">
       <img
-        src={data.snippet.thumbnails.medium.url}
-        className="rounded-lg h-[223px] w-full"
+        src={data.snippet.thumbnails.maxres?.url}
+        className="rounded-lg w-full"
         alt=""
       />
       <p className="font-medium text-md my-2">{data.snippet.title}</p>
@@ -13,7 +13,7 @@ function VideoCard({ data }) {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Eo_circle_grey_checkmark.svg/2048px-Eo_circle_grey_checkmark.svg.png"
           alt=""
-          className="h-3.5"
+          className="h-3.5 shadow-lg"
         />
       </p>
       <p className="flex items-center">
@@ -21,7 +21,7 @@ function VideoCard({ data }) {
           {data.statistics.viewCount} views
         </span>
         <span className="text-gray-500 mr-1">.</span>
-        <span className="text-gray-500 mr-1">{data.statistics.viewCount}</span>
+        <span className="text-gray-500 mr-1">{data.snippet.publishedAt}</span>
       </p>
     </div>
   );
