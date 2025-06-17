@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { EXPLORE_SIDEBAR } from "../utils/Constants";
 function SideBar() {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   return (
@@ -28,44 +29,6 @@ function SideBar() {
               className="h-6 px-2"
             />
             <p className="px-2">Subscriptions</p>
-          </li>
-          <hr />
-        </ul>
-        <ul>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <h3 className="h-6 px-2 font-medium">You</h3>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/61/61122.png"
-              alt="History"
-              className="h-6 px-2"
-            />
-            <p className="px-2">History</p>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/026/221/294/non_2x/playlist-icon-symbol-design-illustration-vector.jpg"
-              alt="Shorts"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Playlist</p>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://cdn.creazilla.com/icons/3264833/watch-later-icon-md.png"
-              alt="Watch Later"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Watch Later</p>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rTpXRr4fT3k5UE7qXmV1PUgtAypBBoi7FA&s"
-              alt="Liked Logo"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Liked</p>
           </li>
           <hr />
         </ul>
@@ -111,38 +74,16 @@ function SideBar() {
           <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
             <h3 className="h-6 px-2 font-medium">Explore</h3>
           </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
+          {EXPLORE_SIDEBAR.map((item) => {
+            return <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/61/61122.png"
-              alt="History"
+              src={item.iconLink}
+              alt={item.name}
               className="h-6 px-2"
             />
-            <p className="px-2">History</p>
+            <p className="px-2">{item.name}</p>
           </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/026/221/294/non_2x/playlist-icon-symbol-design-illustration-vector.jpg"
-              alt="Shorts"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Playlist</p>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://cdn.creazilla.com/icons/3264833/watch-later-icon-md.png"
-              alt="Watch Later"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Watch Later</p>
-          </li>
-          <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rTpXRr4fT3k5UE7qXmV1PUgtAypBBoi7FA&s"
-              alt="Liked Logo"
-              className="h-6 px-2"
-            />
-            <p className="px-2">Liked</p>
-          </li>
+          })}
           <hr />
         </ul>
         <ul>

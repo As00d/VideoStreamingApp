@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_VIDEOS_API } from "../utils/Constants";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router-dom";
 function VideoContainer() {
   const [youtubeVideoData, setYoutubeVideoData] = useState([]);
   const fetchData = async () => {
@@ -16,7 +17,11 @@ function VideoContainer() {
   return (
     <div className="p-4 rounded-lg flex flex-wrap justify-between">
       {youtubeVideoData.map((data) => {
-        return <VideoCard data={data} key={data.id} />;
+        return (
+          <Link to={`watch/${data.id}`}>
+            <VideoCard data={data} key={data.id} />{" "}
+          </Link>
+        );
       })}
     </div>
   );
