@@ -1,34 +1,25 @@
 import { Provider } from "react-redux";
-import Body from "./components/Body";
+import Body from "./pages/Body";
 import Head from "./components/Head";
 import { store } from "./utils/store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainContainer from "./components/MainContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WatchPage from "./components/WatchPage";
-
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Body />,
-    children: [
-      {
-        path: "/",
-        element: <MainContainer />,
-      },
-      {
-        path: "watch",
-        element: <WatchPage />,
-      },
-    ],
-  },
-]);
+import SideBar from "./components/SideBar";
 
 function App() {
   return (
     <div className="p-3">
       <Provider store={store}>
         <Head />
-        <RouterProvider router={appRouter} />
+        <div className="flex">
+          <SideBar />
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<Body />} />
+              <Route path="watch" element={<WatchPage />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </Provider>
     </div>
   );

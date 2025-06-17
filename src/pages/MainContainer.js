@@ -1,5 +1,5 @@
-import ButtonList from "./ButtonList";
-import VideoContainer from "./VideoContainer";
+import ButtonList from "../components/ButtonList";
+import VideoContainer from "../components/VideoContainer";
 
 function MainContainer() {
   return (

@@ -75,14 +75,12 @@ function SideBar() {
             <h3 className="h-6 px-2 font-medium">Explore</h3>
           </li>
           {EXPLORE_SIDEBAR.map((item) => {
-            return <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
-            <img
-              src={item.iconLink}
-              alt={item.name}
-              className="h-6 px-2"
-            />
-            <p className="px-2">{item.name}</p>
-          </li>
+            return (
+              <li className="flex items-center px-2 py-3 hover:bg-gray-100 rounded-lg">
+                <img src={item.iconLink} alt={item.name} className="h-6 px-2" />
+                <p className="px-2">{item.name}</p>
+              </li>
+            );
           })}
           <hr />
         </ul>

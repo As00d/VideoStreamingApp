@@ -7,7 +7,6 @@ function VideoContainer() {
   const fetchData = async () => {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const dataToJson = await data.json();
-    console.log(dataToJson.items);
     setYoutubeVideoData(dataToJson.items);
   };
   useEffect(function () {
@@ -18,7 +17,7 @@ function VideoContainer() {
     <div className="p-4 rounded-lg flex flex-wrap justify-between">
       {youtubeVideoData.map((data) => {
         return (
-          <Link to={`watch/${data.id}`}>
+          <Link to={`watch?v=${data.id}`}>
             <VideoCard data={data} key={data.id} />{" "}
           </Link>
         );
