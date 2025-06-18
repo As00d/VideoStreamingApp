@@ -17,8 +17,8 @@ function VideoContainer() {
     <div className="p-4 rounded-lg flex flex-wrap justify-between">
       {youtubeVideoData.map((data) => {
         return (
-          <Link to={`watch?v=${data.id}`}>
-            <VideoCard data={data} key={data.id} />{" "}
+          <Link to={`watch?v=${data.id}`} key={data.id}>
+            <VideoCard data={data} />
           </Link>
         );
       })}
