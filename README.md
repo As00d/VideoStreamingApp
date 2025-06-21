@@ -14,3 +14,5 @@
 <img width="1710" alt="Image" src="https://github.com/user-attachments/assets/b6a8dfb2-5776-4f29-b941-985ae14bb87f" />
 
 ### Introduction to a new concept called debouncing
+
+- Debouncing is a concept where we do not make api call for every key stroke search button
