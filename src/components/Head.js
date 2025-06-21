@@ -1,9 +1,6 @@
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
-import { GOOGLE_API_KEY } from "../utils/Constants";
-import { Link } from "react-router-dom";
-
 function Head() {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
@@ -11,21 +8,22 @@ function Head() {
   };
   const [userSearch, setUserSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [showSuggestion, setShowSuggestion] = useState(false);
 
   const fetchDataFromAPI = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=14&type=video&q=${userSearch}&key=${GOOGLE_API_KEY}`
+      `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${userSearch}`
     );
     const dataToJson = await data.json();
-    setSearchResult(dataToJson.items);
+    setSearchResult(dataToJson[1]);
   };
 
-  useEffect(
-    function () {
-      fetchDataFromAPI();
-    },
-    [userSearch]
-  );
+  useEffect(() => {
+    const timer = setTimeout(() => fetchDataFromAPI(), 200);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [userSearch]);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -53,6 +51,8 @@ function Head() {
             className="border rounded-l-full w-full p-2 h-10"
             value={userSearch}
             onChange={(e) => setUserSearch(e.target.value)}
+            onFocus={(e) => setShowSuggestion(true)}
+            onBlur={(e) => setShowSuggestion(false)}
           />
           <button>
             <img
@@ -61,19 +61,24 @@ function Head() {
               className="h-10 bg-gray-100 rounded-r-full hover:bg-gray-200"
             />
           </button>
-
-          {/* Overlapping dropdown */}
-          <div className="absolute top-12 left-0 bg-white w-full max-h-64 overflow-y-auto shadow-lg rounded-md z-50">
-            {searchResult &&
-              searchResult.map((item) => (
-                <li
-                  key={item.etag}
-                  className="p-2 border-b hover:bg-gray-100 text-sm cursor-pointer"
-                >
-                  {item.snippet.title}
-                </li>
-              ))}
-          </div>
+          {showSuggestion && (
+            <div className="absolute top-12 left-0 bg-white w-full max-h-64 overflow-y-auto shadow-lg rounded-md z-50">
+              {searchResult &&
+                searchResult.map((item) => (
+                  <p
+                    key={item.etag}
+                    className="p-2 border-b hover:bg-gray-100 text-sm cursor-pointer"
+                  >
+                    <img
+                      alt=""
+                      class="h-8 inline"
+                      src="https://friconix.com/png/fi-xtluhl-magnifying-glass-thin.png"
+                    ></img>
+                    {item}
+                  </p>
+                ))}
+            </div>
+          )}
         </div>
 
         <div className="flex items-center">
