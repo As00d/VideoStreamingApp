@@ -32,3 +32,74 @@ export const EXPLORE_SIDEBAR = [
     id: 5,
   },
 ];
+
+export const MORE_FROM_YOUTUBE = [
+  {
+    iconLink:
+      "https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png",
+    name: "Youtube Premium",
+    id: 1,
+  },
+  {
+    iconLink: "https://img.icons8.com/color/600/youtube-studio.png",
+    name: "Youtube Studio",
+    id: 2,
+  },
+  {
+    iconLink:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Youtube_Music_icon.svg/2048px-Youtube_Music_icon.svg.png",
+    name: "Youtube Music",
+    id: 3,
+  },
+  {
+    iconLink:
+      "https://imgcdn.latestmodapks.com/api/resize?url=https://www.latestmodapks.com/wp-content/uploads/2023/04/PmKHG90S3m.png&width=160",
+    name: "Youtube Kids",
+    id: 3,
+  },
+];
+
+export const SUBSCRIPTION = [
+  {
+    iconLink: "https://cdn-icons-png.flaticon.com/512/61/61122.png",
+    name: "History",
+    id: 1,
+  },
+  {
+    iconLink:
+      "https://static.vecteezy.com/system/resources/previews/026/221/294/non_2x/playlist-icon-symbol-design-illustration-vector.jpg",
+    name: "Playlist",
+    id: 2,
+  },
+  {
+    iconLink:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rTpXRr4fT3k5UE7qXmV1PUgtAypBBoi7FA&s",
+    name: "Liked",
+    id: 3,
+  },
+  {
+    iconLink: "https://cdn.creazilla.com/icons/3264833/watch-later-icon-md.png",
+    name: "Watch Later",
+    id: 4,
+  },
+];
+
+export const TOP_YOUTUBE_SIDEBAR = [
+  {
+    iconLink: "https://cdn-icons-png.flaticon.com/512/25/25694.png",
+    name: "Home",
+    id: 1,
+  },
+  {
+    iconLink:
+      "https://images.seeklogo.com/logo-png/49/2/youtube-shorts-logo-png_seeklogo-490668.png",
+    name: "Shorts",
+    id: 2,
+  },
+  {
+    iconLink:
+      "https://images.icon-icons.com/2248/PNG/512/youtube_subscription_icon_136007.png",
+    name: "Subscriptions",
+    id: 1,
+  },
+];
