@@ -16,3 +16,8 @@
 ### Introduction to a new concept called debouncing
 
 - Debouncing is a concept where we do not make api call for every key stroke search button
+- Implemented debouncing in the application using setTimeout function
+
+Lets talk about cache, the first thing that we are doing is to create an slice, a slice which will store the result of caching. The next thing that we need to discuss is which data structure one should use to store the searched value.
+Possible option once could think of is - using array - but there is an issue for a normal search operation in array we need O(n)
+whereas if we have {} as an initial value then it would be o(1) so we need to think of the data structure aspect also.

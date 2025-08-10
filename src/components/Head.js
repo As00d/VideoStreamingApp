@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { addSearchValue } from "../utils/searchSlice";
 import { useEffect, useState } from "react";
 function Head() {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+
   const [userSearch, setUserSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
@@ -16,10 +18,16 @@ function Head() {
     );
     const dataToJson = await data.json();
     setSearchResult(dataToJson[1]);
+    console.log(userSearch);
+    console.log(dataToJson[1]);
+
+    dispatch(addSearchValue({ userSearch: dataToJson[1] }));
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => fetchDataFromAPI(), 200);
+    const timer = setTimeout(() => {
+      fetchDataFromAPI();
+    }, 200);
     return () => {
       clearTimeout(timer);
     };

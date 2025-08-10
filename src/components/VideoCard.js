@@ -1,3 +1,4 @@
+import { viewOnYoutubeVideo } from "../common/helperMethods";
 function VideoCard({ data }) {
   return (
     <div className="rounded-xl w-[397px] my-4">
@@ -16,12 +17,12 @@ function VideoCard({ data }) {
           className="h-3.5 shadow-lg"
         />
       </p>
-      <p className="flex items-center">
-        <span className="text-gray-500 mr-1">
-          {data.statistics.viewCount} views
+      <p className="flex items-center text-sm">
+        <span className="text-gray-600 mr-1">
+          {viewOnYoutubeVideo(data.statistics.viewCount)} views
         </span>
-        <span className="text-gray-500 mr-1">.</span>
-        <span className="text-gray-500 mr-1">{data.snippet.publishedAt}</span>
+        <span className="text-gray-600 mr-1">.</span>
+        <span className="text-gray-600 mr-1">{data.snippet.publishedAt}</span>
       </p>
     </div>
   );
